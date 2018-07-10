@@ -13,3 +13,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+
+## Implemented features
+    * Comments country, on hover you can see the lat and lon's location on a static map
+    * When we hover on comment, we can see a screenshot thumbnail image in a tooltip 
+
+## TODO
+
+- [x] Create tag labels beside of the comment

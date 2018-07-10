@@ -1,21 +1,17 @@
 <div id="filters">
-  <input type="text" placeholder="Search here!" class="filter-input">
+  <input 
+    type="text" 
+    placeholder="Search here!" 
+    class="filter-input"
+    [(ngModel)]="search" 
+    (ngModelChange)="searchQuery(search)">
 
   <div id="ratings">
-    <span class="rating">
-      <span>1</span>
-    </span>
-    <span class="rating">
-      <span>2</span>
-    </span>
-    <span class="rating">
-      <span>3</span>
-    </span>
-    <span class="rating">
-      <span>4</span>
-    </span>
-    <span class="rating">
-      <span>5</span>
+    <span class="rating"
+      *ngFor="let rating of ratingFilter"
+      (click)="toggleRating(rating)"
+      [ngClass]="{'selected': rating.selected, 'not-selected': !rating.selected}">
+        <span>{{rating.value}}</span>
     </span>
   </div>
 </div>

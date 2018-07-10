@@ -1,6 +1,6 @@
 <div>
   <div id="filters">
-    <usbl-filter></usbl-filter>
+    <usbl-filter (onSearch)="filterBySearch($event)" (onChangeRating)="filterByRating($event)"></usbl-filter>
   </div>
   <table id="feed">
     <thead>
@@ -10,19 +10,38 @@
         <th>Browser</th>
         <th>Device</th>
         <th>Platform</th>
+        <th>Country</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let feedItem of feedItems">
         <td class="center">
-          <span class="rating">
-            <span>100</span>
+          <span class="rating selected">
+            <span>{{feedItem.rating}}</span>
           </span>
         </td>
-        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque metus ipsum, fringilla eu augue ac, tempus lacinia massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent bibendum sed felis ac varius. Etiam consequat</td>
-        <td class="center">Chrome 34.2</td>
-        <td class="center">Desktop</td>
-        <td class="center">OXS 1.0</td>
+        <td class="center">
+            <div class="tooltip dotted">
+              <img [src]="getCountryFlag(feedItem.geo?.country)" [alt]="feedItem.computed_location">
+              <span class="content bg-color">
+                <h2 class="title">{{feedItem.computed_location}}</h2>
+                <img [src]="getMapUrl(feedItem.geo?.lat, feedItem.geo?.lon)" [alt]="feedItem.computed_location">
+              </span>
+            </div>
+          </td>
+        <td>
+          <div class="tooltip dotted">
+              {{feedItem.comment}}
+              <span class="content">
+                  <img [src]="feedItem.images?.detail?.url" [alt]="feedItem.computed_location">
+              </span>
+          </div>
+          
+        </td>
+        <td class="center">{{feedItem.computed_browser?.Browser}} {{feedItem.computed_browser?.Version}}</td>
+        <td class="center">{{getDeviceLabel(feedItem)}}</td>
+        <td class="center">{{feedItem.computed_browser?.Platform}}</td>
+        
       </tr>
     </tbody>
   </table>
