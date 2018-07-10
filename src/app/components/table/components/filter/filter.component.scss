@@ -1,0 +1,22 @@
+@import '~assets/scss/variables';
+
+#filters {
+  margin: 25px auto;
+}
+
+#ratings {
+  display: inline-block;
+  margin-left: 1em;
+
+  .rating {
+    // font-size: 25px;
+  }
+}
+
+.filter-input {
+  padding-left: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: 1px solid #D0D7DD;
+  border-radius: 3px;
+}
