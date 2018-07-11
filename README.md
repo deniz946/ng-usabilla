@@ -1,13 +1,16 @@
 # Frontend vacancy assignment for [Usabilla](http://usabilla.com)
+# [Live demo](http://deniz-usabilla.surge.sh/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
+
 ## Note
-Using [Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi) Chrome plugin because I'm being blocked by the CORS of the static files api.
+* Using [Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi) Chrome plugin because I'm being blocked by the CORS of the static files api.
+* Downloaded the json from your server and uploaded it on my personal website server to resolve CORS and error 403 related issues trying to request on your given URL.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm install` and after `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
@@ -27,5 +30,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - [x] Tooltip with map with the coord's
 - [x] Screenshot of comment on hover
 - [x] Country flag
-- [ ] Loading screen
-- [ ] On click on the static map open new tab to google maps with the direction
+- [x] ~~Loading screen~~ Empty feed message
+- [x] On click on the static map open new tab to google maps with the direction
