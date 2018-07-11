@@ -54,7 +54,7 @@ export class TableComponent implements OnInit {
     }
   }
 
-  onFilterChanged(filter: FilterObject) {
+  onFilterChanged(filter: FilterObject): void {
     const selectedRatings = filter.rating.map(rating => rating.value).join(', ');
     this.feedItems = this.filteredItems
       .filter(feedItem => {
