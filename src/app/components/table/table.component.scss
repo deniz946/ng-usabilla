@@ -4,12 +4,12 @@
 #feed {
   font-family: Verdana, Geneva, sans-serif;
   border-collapse: collapse;
-  border: 1px solid black;
   width: 100%;
   border: 1px solid #ddd;
 
   & td, & th {
     border: 1px solid #ddd;
+    background-color: white;
     border: none;
     padding: 8px;
     padding-left: 40px;

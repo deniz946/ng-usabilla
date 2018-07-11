@@ -21,12 +21,12 @@ export class TableComponent implements OnInit {
   }
 
   getDeviceLabel(item: FeedItem): string {
-    if (this.isPhone(item.screen.width)) {
-      return 'Mobile';
-    } else if (this.isTablet(item.screen.width)) {
-      return 'Tablet';
-    } else {
+    if (this.isDesktop(item.screen.width)) {
       return 'Desktop';
+    } else if (this.isPhone(item.screen.width)) {
+      return 'Mobile';
+    } else {
+      return 'Tablet';
     }
   }
 
@@ -36,10 +36,6 @@ export class TableComponent implements OnInit {
 
   isPhone(width: number): boolean {
     return width >= 414 && width <= 736;
-  }
-
-  isTablet(width: number): boolean {
-    return width >= 834 && width <= 1112;
   }
 
   isDesktop(width: number): boolean {
@@ -70,6 +66,10 @@ export class TableComponent implements OnInit {
   getMapUrl(lat: string, lng: string): string {
     return `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}
       &zoom=14&size=150x150&key=AIzaSyD9ycobB5RiavbXpJBo0Muz2komaqqvGv0&markers=${lat},${lng}&scale=2`;
+  }
+
+  goToMapsUrl(lat: string, lng: string): void {
+    var win = window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
   }
 
   private getFeeds(): void {

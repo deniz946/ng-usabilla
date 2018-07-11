@@ -13,8 +13,14 @@
 
 #content {
   width: 85%;
-  background-color: $bg-color;
   margin: 5px auto;
+}
+
+#main {
+  background-color: $bg-color;
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
 }
 
 .rating {

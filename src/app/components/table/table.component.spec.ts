@@ -35,7 +35,16 @@ describe('TableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create table', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should be Desktop platform', () => {
+    const item = <FeedItem> {
+      screen : {
+        width: 1300
+      }
+    }
+    expect(component.getDeviceLabel(item)).toBe('Desktop');
   });
 });
