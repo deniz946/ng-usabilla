@@ -6,6 +6,7 @@
     <thead>
       <tr>
         <th style="text-align: center">Rating</th>
+        <th>Country</th>
         <th>Comment</th>
         <th>Browser</th>
         <th>Device</th>
@@ -42,6 +43,9 @@
         <td class="center">{{getDeviceLabel(feedItem)}}</td>
         <td class="center">{{feedItem.computed_browser?.Platform}}</td>
 
+      </tr>
+      <tr *ngIf="feedItems.length === 0">
+        <h1>No feeds</h1>
       </tr>
     </tbody>
   </table>

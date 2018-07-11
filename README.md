@@ -24,4 +24,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## TODO
 
-- [x] Create tag labels beside of the comment
+- [] Comet Haley Create tag labels beside of the comment
+- [x] Tooltip with map with the coord's
+- [x] Screenshot of comment on hover
+- [x] Country flag
+- [] Loading screen
+- [] On click on the static map open new tab to google maps with the direction

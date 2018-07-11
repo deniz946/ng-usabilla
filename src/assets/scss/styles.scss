@@ -38,10 +38,10 @@
     background-color: $circle-color;
   }
 
-  &.not-selected {
-    background-color: #F1F6FA;
-    color: black;
-  }
+  &.not-selected > span {
+      background-color: #F1F6FA;
+      color: #D7DCE0;
+    }
 }
 
 .tooltip {

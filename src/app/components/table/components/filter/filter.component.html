@@ -9,6 +9,7 @@
   <div id="ratings">
     <span class="rating"
       *ngFor="let rating of ratingFilter"
+      [title]="rating.value"
       (click)="toggleRating(rating)"
       [ngClass]="{'selected': rating.selected, 'not-selected': !rating.selected}">
         <span>{{rating.value}}</span>
