@@ -1,44 +1,62 @@
-@import '~assets/scss/variables';
+  @import '~assets/scss/variables';
 
-// Table properties
-#feed {
-  font-family: Verdana, Geneva, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
+  // Table properties
+  #feed {
+    font-family: Verdana, Geneva, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0; 
 
-  & td, & th {
-    border: 1px solid #ddd;
-    background-color: white;
-    border: none;
-    padding: 8px;
-    padding-left: 40px;
-    padding-right: 40px;
+
+    // Rounded borders in the feeds table
+    & thead tr:first-child th:first-child {
+      border-radius: 0.6em 0 0 0;
+    }
+
+    & thead tr:first-child th:last-child {
+      border-radius: 0 0.6em 0 0;
+    }
+
+    & tbody tr:last-child td:first-child {
+      border-radius: 0 0 0 0.6em;
+    }
+
+    & tbody tr:last-child td:last-child {
+      border-radius: 0 0 0.6em 0;
+    }
+
+    & td, & th {
+      border: 1px solid #ddd;
+      background-color: white;
+      border: none;
+      padding: 8px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    & td {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    & th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #59636C;
+      color: white;
+    }
+
+    & .center {
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+      width: 100px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    & tr:nth-child(even){background-color: #f2f2f2;}
   }
 
-  & td {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  & th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #59636C;
-    color: white;
-  }
-
-  & .center {
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100px;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  & tr:nth-child(even){background-color: #f2f2f2;}
-}
-
-//#feed tr:hover {background-color: #ddd;}
+  //#feed tr:hover {background-color: #ddd;}
