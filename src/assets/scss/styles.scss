@@ -3,18 +3,25 @@
 @import './reset';
 
 .dashboard-title {
-  margin: 20px auto;
-  font-size: 35px;
+  background-color: white;
+  padding-top: 0.3em;
+  font-size: 36px;
+
+  & img {
+    width: 35px;
+    height: 35px;
+    margin-right: 0.2em;
+  }
 }
 
-.dashboard-icon {
-  margin-right: 0.2em;
+body {
+  background-color: $bg-color;
 }
 
-#content {
-  width: 85%;
-  margin: 5px auto;
+.container {
+  max-width: none;
 }
+
 
 #main {
   background-color: $bg-color;
