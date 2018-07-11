@@ -6,6 +6,10 @@
   font-size: 35px;
 }
 
+.dashboard-icon {
+  margin-right: 0.2em;
+}
+
 #content {
   width: 85%;
   background-color: $bg-color;
@@ -35,7 +39,7 @@
 
   &.not-selected {
     background-color: #F1F6FA;
-    color: #F1F6FA;
+    color: black;
   }
 }
 

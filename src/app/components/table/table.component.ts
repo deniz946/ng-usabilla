@@ -1,10 +1,11 @@
+import { FilterObject } from './../../core/models/FilterObject';
 import { Rating } from './../../core/models/Rating';
 import { Feed, FeedItem } from './../../core/models/Feed';
 import { FeedService } from './../../core/services/feed.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'usbl-table',
+  selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
@@ -29,6 +30,10 @@ export class TableComponent implements OnInit {
     }
   }
 
+  getComment(comment: string): string {
+    return comment && !!comment.length ? comment : 'No comment avaible';
+  }
+
   isPhone(width: number): boolean {
     return width >= 320 && width <= 480;
   }
@@ -44,14 +49,18 @@ export class TableComponent implements OnInit {
   filterBySearch(value: string): void {
     if (value) {
       this.feedItems = this.filteredItems.filter(item => item.comment.includes(value));
-    } else if(value.length === 0) {
+    } else if (value.length === 0) {
       this.feedItems = this.filteredItems;
     }
   }
 
-  filterByRating(ratings: Rating[]) {
-    const selectedRatings = ratings.map(rating => rating.value).join(', ');
-    this.feedItems = this.filteredItems.filter(feedItem => selectedRatings.includes(String(feedItem.rating)))
+  onFilterChanged(filter: FilterObject) {
+    const selectedRatings = filter.rating.map(rating => rating.value).join(', ');
+    this.feedItems = this.filteredItems
+      .filter(feedItem => {
+        return selectedRatings.includes(String(feedItem.rating))
+          && feedItem.comment.includes(filter.search);
+      });
   }
 
   getCountryFlag(countryCode: string): string {
@@ -66,9 +75,8 @@ export class TableComponent implements OnInit {
   private getFeeds(): void {
     this._feedService.getFeed()
       .subscribe(feeds => {
-        console.log(feeds);
-        // I just take the first 10 feeds for easy view and manipulation
-        this.feedItems = feeds.items.splice(0, 10);
+        // I just take the first 20 feeds for easy view and manipulation
+        this.feedItems = feeds.items.splice(0, 20);
         this.filteredItems = this.feedItems;
       });
   }

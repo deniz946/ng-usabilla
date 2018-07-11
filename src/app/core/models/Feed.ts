@@ -15,11 +15,11 @@ export class FeedItem {
   screen: Screen;
   get: Geo;
   computed_location: string;
-  images: Image
+  images: Image;
 }
 
 class ComputedBrowser {
-  Browser : string;
+  Browser: string;
   Version: string;
   Platform: string;
 }

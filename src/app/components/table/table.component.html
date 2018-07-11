@@ -1,6 +1,6 @@
 <div>
   <div id="filters">
-    <usbl-filter (onSearch)="filterBySearch($event)" (onChangeRating)="filterByRating($event)"></usbl-filter>
+    <app-filter (filterChanged)="onFilterChanged($event)"></app-filter>
   </div>
   <table id="feed">
     <thead>
@@ -31,17 +31,17 @@
           </td>
         <td>
           <div class="tooltip dotted">
-              {{feedItem.comment}}
+              {{getComment(feedItem.comment)}}
               <span class="content">
                   <img [src]="feedItem.images?.detail?.url" [alt]="feedItem.computed_location">
               </span>
           </div>
-          
+
         </td>
         <td class="center">{{feedItem.computed_browser?.Browser}} {{feedItem.computed_browser?.Version}}</td>
         <td class="center">{{getDeviceLabel(feedItem)}}</td>
         <td class="center">{{feedItem.computed_browser?.Platform}}</td>
-        
+
       </tr>
     </tbody>
   </table>

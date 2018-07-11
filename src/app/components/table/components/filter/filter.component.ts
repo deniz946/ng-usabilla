@@ -1,46 +1,41 @@
 import { Rating } from './../../../../core/models/Rating';
 import { Component, OnInit, Output, EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { debounceTime, map, distinctUntilChanged, mergeMap } from 'rxjs/operators';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { FilterObject } from '../../../../core/models/filterObject';
 
 @Component({
-  selector: 'usbl-filter',
+  selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
 
-  public searchValue: Subject<string> = new Subject();
+  public searchValue: BehaviorSubject<string> = new BehaviorSubject('');
   public searchValue$: Observable<string> = this.searchValue
     .asObservable()
     .pipe(distinctUntilChanged())
-    .pipe(debounceTime(150));
+    .pipe(debounceTime(500));
 
   @Output()
-  onSearch: EventEmitter<string> = new EventEmitter();
+  filterChanged: EventEmitter<FilterObject> = new EventEmitter();
 
-  @Output()
-  onChangeRating: EventEmitter<Rating[]> = new EventEmitter();
-
+  public searchInput = '';
   public ratingFilter: Rating[] = [
     {selected: true, value: 1},
     {selected: true, value: 2},
     {selected: true, value: 3},
     {selected: true, value: 4},
     {selected: true, value: 5},
-  ]
+  ];
 
-  constructor(private changeDetector: ChangeDetectorRef) { 
+  constructor(private changeDetector: ChangeDetectorRef) {
     this.searchValue$.subscribe((value: string) => {
-      this.onSearch.emit(value);
       this.changeDetector.markForCheck();
-      console.log(value);
+      this.emitChanges();
     });
-  }
-
-  ngOnInit() {
   }
 
   searchQuery(query: string) {
@@ -50,14 +45,16 @@ export class FilterComponent implements OnInit {
   toggleRating(currRating: Rating): void {
     const filter = this.ratingFilter.find(rating => rating.value === currRating.value);
     filter.selected = !currRating.selected;
-    this.emitRatingChange();
+    this.emitChanges();
   }
 
-  private emitRatingChange(): void {
-    const ratings = this.ratingFilter.filter(rating => rating.selected)
-    this.onChangeRating.emit(ratings);
+  private emitChanges(): void {
+    this.filterChanged.emit({
+      search: this.searchInput,
+      rating: this.ratingFilter.filter(rating => rating.selected)
+    });
   }
 
-  
+
 
 }
