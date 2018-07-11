@@ -35,11 +35,11 @@ export class TableComponent implements OnInit {
   }
 
   isPhone(width: number): boolean {
-    return width >= 320 && width <= 480;
+    return width >= 414 && width <= 736;
   }
 
   isTablet(width: number): boolean {
-    return width >= 768 && width <= 1024;
+    return width >= 834 && width <= 1112;
   }
 
   isDesktop(width: number): boolean {
