@@ -13,6 +13,14 @@ import { FilterObject } from '../../../../core/models/filterObject';
 })
 export class FilterComponent {
 
+  public searchInput = '';
+  public ratingFilter: Rating[] = [
+    { selected: true, value: 1 },
+    { selected: true, value: 2 },
+    { selected: true, value: 3 },
+    { selected: true, value: 4 },
+    { selected: true, value: 5 },
+  ];
   public searchValue: BehaviorSubject<string> = new BehaviorSubject('');
   public searchValue$: Observable<string> = this.searchValue
     .asObservable()
@@ -21,15 +29,6 @@ export class FilterComponent {
 
   @Output()
   filterChanged: EventEmitter<FilterObject> = new EventEmitter();
-
-  public searchInput = '';
-  public ratingFilter: Rating[] = [
-    {selected: true, value: 1},
-    {selected: true, value: 2},
-    {selected: true, value: 3},
-    {selected: true, value: 4},
-    {selected: true, value: 5},
-  ];
 
   constructor(private changeDetector: ChangeDetectorRef) {
     this.searchValue$.subscribe((value: string) => {
@@ -54,7 +53,4 @@ export class FilterComponent {
       rating: this.ratingFilter.filter(rating => rating.selected)
     });
   }
-
-
-
 }

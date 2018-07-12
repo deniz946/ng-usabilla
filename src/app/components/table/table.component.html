@@ -1,7 +1,7 @@
-<div>
-  <div id="filters">
-    <app-filter (filterChanged)="onFilterChanged($event)"></app-filter>
-  </div>
+<div id="filters">
+  <app-filter (filterChanged)="onFilterChanged($event)"></app-filter>
+</div>
+<div class="feed-container">
   <table id="feed">
     <thead>
       <tr>
@@ -21,20 +21,20 @@
           </span>
         </td>
         <td class="center">
-            <div class="tooltip dotted">
-              <img [src]="getCountryFlag(feedItem.geo?.country)" [alt]="feedItem.computed_location">
-              <span class="content bg-color">
-                <h2 class="title">{{feedItem.computed_location}}</h2>
-                <img [src]="getMapUrl(feedItem.geo?.lat, feedItem.geo?.lon)" [alt]="feedItem.computed_location" (click)="goToMapsUrl(feedItem.geo?.lat, feedItem.geo?.lon)">
-              </span>
-            </div>
-          </td>
+          <div class="tooltip dotted">
+            <img [src]="getCountryFlag(feedItem.geo?.country)" [alt]="feedItem.computed_location">
+            <span class="content bg-color">
+              <h2 class="title">{{feedItem.computed_location}}</h2>
+              <img [src]="getMapUrl(feedItem.geo?.lat, feedItem.geo?.lon)" [alt]="feedItem.computed_location" (click)="goToMapsUrl(feedItem.geo?.lat, feedItem.geo?.lon)">
+            </span>
+          </div>
+        </td>
         <td>
           <div class="tooltip dotted">
-              {{getComment(feedItem.comment)}}
-              <span class="content">
-                  <img [src]="feedItem.images?.detail?.url" [alt]="feedItem.computed_location">
-              </span>
+            {{getComment(feedItem.comment)}}
+            <span class="content">
+              <img [src]="feedItem.images?.detail?.url" [alt]="feedItem.computed_location">
+            </span>
           </div>
 
         </td>
@@ -44,7 +44,7 @@
 
       </tr>
       <tr *ngIf="feedItems.length === 0">
-        <h1>No feeds</h1>
+        <h1>No feeds avaible right now</h1>
       </tr>
     </tbody>
   </table>

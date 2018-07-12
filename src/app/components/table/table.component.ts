@@ -69,7 +69,7 @@ export class TableComponent implements OnInit {
   }
 
   goToMapsUrl(lat: string, lng: string): void {
-    var win = window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
+    window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
   }
 
   private getFeeds(): void {
