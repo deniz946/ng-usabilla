@@ -75,8 +75,8 @@ export class TableComponent implements OnInit {
   private getFeeds(): void {
     this._feedService.getFeed()
       .subscribe(feeds => {
-        // I just take the first 20 feeds for easy view and manipulation
-        this.feedItems = feeds.items.splice(0, 20);
+        // I just take the first 30 feeds for easy view and manipulation
+        this.feedItems = feeds.items.splice(0, 30);
         this.filteredItems = this.feedItems;
       });
   }
