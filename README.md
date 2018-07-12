@@ -1,5 +1,5 @@
 # Frontend vacancy assignment for [Usabilla](http://usabilla.com)
-# [Live demo](http://deniz-usabilla.surge.sh/)
+# [Live demo](http://codigodiario.me/usabilla)
 ![Preview](http://img110.xooimage.com/files/4/0/9/screencapture-loc...11_22_18-54c96db.png)
 
 
