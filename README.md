@@ -1,5 +1,7 @@
 # Frontend vacancy assignment for [Usabilla](http://usabilla.com)
 # [Live demo](http://deniz-usabilla.surge.sh/)
+![Preview](http://img110.xooimage.com/files/4/0/9/screencapture-loc...11_22_18-54c96db.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
